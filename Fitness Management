@@ -1,0 +1,323 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define FEETTOMETER 0.3048
+int main() {
+float weight, height, bmi;
+printf("Enter your weight(in kgs):");
+scanf("%f", &weight);
+
+printf("Enter your height(in feet):");
+scanf("%f", &height);
+
+height = height * FEETTOMETER;
+bmi = (weight)/(height * height);
+printf("Your Body Mass Index: %f\n", bmi);
+if(bmi < 15) {
+printf("Your BMI category is: Starvation\n"); }
+else if(bmi >= 15.1 && bmi <= 17.5) {
+printf("Your BMI category is: Anorexic\n"); }
+else if(bmi >= 17.6 && bmi <= 18.5) {
+printf("Your BMI category is: Underweight\n"); }
+else if(bmi >= 18.6 && bmi <= 24.9) {
+printf("Your BMI category is: Ideal\n"); }
+else if(bmi >= 25 && bmi <= 25.9) {
+printf("Your BMI category is: Overweight\n"); }
+
+else if(bmi >= 30 && bmi <= 30.9) {
+printf("Your BMI category is: Obese\n"); }
+else if(bmi >= 40) {
+printf("Your BMI category is: Morbidly Obese\n"); }
+else {
+printf("Wrong entry\n"); }
+{
+int gender; //declare variables
+float h;
+float w;
+float bmr;
+int age;
+int activity;
+float calories;
+
+printf("Basal Metabolic Rate Calculator\n"); //title
+
+printf("This Basal Metabolic Rate calculator is to calculate the number of calories \nrequired in order to keep your body functioning when you are at \nrest which also known as your metabolism.\n\n"); //introduction b.m.r
+{
+
+printf("\nPlease specify your gender.\n\n"); //gender
+printf("1 - Male\n");
+printf("2 - Female\n");
+printf("\nI am:");
+scanf("%d", &gender); 
+
+printf("\nPlease enter your age (years):"); //age
+scanf("%d", &age); 
+
+h=height*100;
+
+w=weight;
+printf("\nPlease choose your activity level In.\n"); //the activity level is based on one's life
+printf("1 - I am sedentary (little or no exercise).\n");
+printf("2 - I am lightly active (light exercise or sports 1-3 days per week).\n");
+printf("3 - I am moderately active (moderate exercise or sports 3-5 days per week).\n");
+printf("4 - 1 am very active (hard exercise or sports 6-7 days per week).\n");
+printf("5 - I am super active (very hard exercise or sports and a physical job or 2 times training).\n");
+printf("\nI am:");
+scanf("%d", &activity); 
+
+//based on gender, the b,m.r is calculated
+if (gender==1) //for male
+{
+    bmr=88.362+(13.397*w)+(4.799*h)-(5.677*age); //formula for b.m.r for male
+    printf("\nYour B.M.R, is %.1f calories a day.\n", bmr); 
+    printf("\n");
+
+// based on activity, the daily calories requirement is calculated
+    if (activity==1) //little or no exercise
+    {
+        calories = bmr*1.2;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+
+    else if (activity==2) //light exercise
+    {
+        calories = bmr*1.375;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+    
+    else if (activity==3) //moderate exercise
+    {
+        calories = bmr*1.55;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+
+    else if (activity==4) //hard exercise
+    {
+
+        calories = bmr*1.725;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+    
+    else if (activity==5) //very hard exercise
+    {
+        calories = bmr*1.9;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+    
+    else
+    {
+        printf("The value you inserted for age, height or weight cannot be read.\n");
+    }
+}
+    
+    
+if (gender==2) //for female
+{
+    bmr=447.593+(9.247*w)+(3.098*h)-(4.330*age); //formula tor b.m.r for female
+    printf("\nYour B.M.R, is %.1f calories a day.\n\n", bmr); 
+    printf("\n");
+        
+// based on activity, the daily calories requirement is calculated
+    if (activity==1) //little or no exercise
+    {
+        calories = bmr*1.2;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+    else if (activity==2) //light exercise
+    {
+        calories = bmr*1.375;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+        
+    else if (activity==3) //moderate exercise
+    {
+        calories = bmr*1.55;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+        
+    else if (activity==4) //hard exercise
+    {
+        calories = bmr*1.725;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+        
+    else if (activity==5) //very hard exercise
+    {
+        calories = bmr*1.9;
+        printf("Your daily calories requirement is %.1f calories or kJ.\n" , calories);
+        printf("\n");
+    }
+    
+    else
+    {
+        printf("The value you inserted for activity cannot be read.\n"); }
+    }
+    
+else //gender input other than 1 and 2
+{
+    printf("The value you inserted for gender is invalid.\n");
+    printf("\n");
+    
+}
+}
+int choice;
+printf("\nEnter 1 for Sample meal plan\nEnter 2 to ignore\n");
+scanf("%d",&choice);
+if(choice==1){
+    if(age<13){
+        printf("Breakfast:2 servings Baked Banana-Nut Oatmeal Cups 1 clementine\n");
+                printf("A.M Snack:1 medium apple, sliced 1 Tbsp. peanut butter\n");
+printf("Lunch:1 serving Veggie & Hummus Sandwich\n");
+printf("P.M Snack:1 medium banana\n");
+printf("Dinner:1 serving Sheet-Pan Chicken Fajita Bowls with 1/3 cup cooked brown rice\n");
+    }
+    else if(age>=13 && age<=18){
+        printf("Breakfast:Avocado-Egg Toast,1 medium banana\n");
+                printf("A.M Snack:1 medium apple,2 Tbsp. peanut butter\n");
+printf("Lunch:2 cups Ravioli & Vegetable Soup,2 diagonal slices baguette,1 medium pear\n");
+printf("P.M Snack:5 Tbsp. hummus, 1 cup sliced cucumber, 4 medium carrots\n");
+printf("Dinner:Salmon & Vegetables,1 cup brown rice\n");
+    }
+    else if(age>=19 && age<=30){
+       printf("Breakfast:2 scrambled eggs with 1 cup spinach,  whole grain English muffin with 2 Tbsp peanut butter.\n");
+                printf("A.M Snack:1 cup raspberries (or 2 clementines) with 24 almonds.\n");
+printf("Lunch:Grilled chicken salad,1 small whole grain roll; 1 pear.\n");
+printf("P.M Snack:14 baby carrots with 2 Tbsp hummus\n");
+printf("Dinner:5 oz grilled fish with 12 spears asparagus,1 cup cooked brown rice + side salad\n");
+    }
+    else if(age>=31 && age<=59){
+        printf("Breakfast:Broken Wheat Porridge (Dalia)\n");
+                printf("A.M Snack:1 Banana,Milk.\n");
+printf("Lunch:Normal Roti+ Rice / Masala Dosa,Paneer curry/ Sambhar,Green Salad,Fruit Juice.\n");
+printf("P.M Snack:Banana Shake + Almonds\n");
+printf("Dinner:Normal Roti,Pulse (Dal) / Egg white curry,Seasonal Vegetables\n");
+    }
+    else{
+        printf("Breakfast:Avocado-Egg Toast,1 medium banana\n");
+                printf("A.M Snack:1 medium apple,2 Tbsp. peanut butter\n");
+printf("Lunch:2 cups Ravioli & Vegetable Soup,2 diagonal slices baguette,1 medium pear\n");
+printf("P.M Snack:5 Tbsp. hummus, 1 cup sliced cucumber, 4 medium carrots\n");
+printf("Dinner:Salmon & Vegetables,1 cup brown rice\n");
+    }
+}
+else if (choice==2){
+    printf("Calculate Energy balance\n");
+}
+{
+    if(age<13){
+        printf("Calorie IN per day:1500 cal");
+    }
+    else if(age>=13 && age<=18){
+        printf("Calorie IN per day:2100 cal");
+    }
+    else if(age>=19 && age<=30){
+        printf("Calorie IN per day:2400 cal");
+    }
+    else if(age>=31 && age<=59){
+        printf("Calorie IN per day:2600 cal");
+    }
+    else{
+        printf("Calorie IN per day:2200 cal");
+    }
+    int x;
+    printf("\n1.Enter 1 for 5000 steps of walking\n2.Enter 2 for 10000 steps of walking\n3.Enter 3 for 30 minutes of jogging\n4.Enter 4 for 1 hour of jogging\n5.Enter 5 for 30 min of swimming\n6.Enter 6 for 1 hour of swimming\n7.Enter 7 for 1 hour of aerobic exercise\n8.Enter 8 for 2 hours of aerobic exercise");
+    scanf("%d",&x);
+    switch(x)
+    {
+        case 1: printf("Calorie OUT for 5000 steps of walking:175 cal");
+        break;
+        case 2: printf("Calorie OUT for 10000 steps of walking:350 cal");
+        break;
+        case 3: printf("Calorie OUT for 30 minutes jogging:350 cal");
+        break;
+        case 4: printf("Calorie OUT for 1 hour jogging:800 cal");
+        break;
+        case 5: printf("Calorie OUT for 30 minutes swimming:250 cal");
+        break;
+        case 6: printf("Calorie OUT for 1 hour swimming:500 cal");
+        break;
+        case 7: printf("Calorie OUT for 1 hour workout:500 cal");
+        break;
+        case 8: printf("Calorie OUT for 2 hours workout:1000 cal");
+        break;
+        default: printf("Invalid");
+        break;
+    }
+    
+    int a,b,c;
+    if(age<13){
+       a=1500;
+    }
+    else if(age>=13 && age<=18){
+        a=2100;
+    }
+    else if(age>=19 && age<=30){
+        a=2400;
+    }
+    else if(age>=31 && age<=59){
+        a=2600;
+    }
+    else{
+        a=2200;
+    }
+     
+    switch(x)
+    {
+        case 1: b=175;
+        break;
+        case 2: b=350 ;
+        break;
+        case 3: b=350;
+        break;
+        case 4: b=800 ;
+        break;
+        case 5: b=250;
+        break;
+        case 6: b=500;
+        break;
+        case 7: b=500;
+        break;
+        case 8: b=1000;
+        break;
+        default: printf("Invalid");
+        break;
+    }
+    printf("\nCalorie IN - Calorie OUT = Energy Balance");
+    c=bmr+b;
+
+    printf("\n%d - %d = %d",a,c,a-c);
+    if(a-c>0){
+        printf("\nWeight Gain");
+    }
+    else if(a-c<0){
+        printf("\nWeight Loss");
+    }
+    else if(a-c==0){
+        printf("\nNeutral");
+    }
+        if(a-c>0){
+        printf("\nGoal not achieved\n");
+    }
+    else if(a-c<0){
+        printf("\nGoal achieved\n");
+    }
+    else if(a-c==0){
+        printf("\nWeight maintained\n");
+    }
+
+
+printf("Thank you for using this program!\n"); 
+
+
+}
+}
+    return 0;
+}
